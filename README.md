@@ -12,5 +12,5 @@ MOOV-DL will add itself as a device to your account upon logging in. It will app
 
 # Account Info
 - Usable in any country. No VPN needed or any payment region restrictions.
-- 14-day free trials are being offered at the type of typing this.
+- 14-day free trials are being offered at the time of typing this.
 - [Subscription plans](https://moov.hk/reg/paynow.html?lang=en_us) (prices are in HKD). The easiest payment method is through the Android app via Google Pay.
