@@ -285,10 +285,13 @@ if __name__ == '__main__':
 	""")
 	is_win = platform.system() == "Windows"
 	client = client.Client()
-	if hasattr(sys, 'frozen'):
-		os.chdir(os.path.dirname(sys.executable))
-	else:
-		os.chdir(os.path.dirname(__file__))
+	try:
+		if hasattr(sys, 'frozen'):
+			os.chdir(os.path.dirname(sys.executable))
+		else:
+			os.chdir(os.path.dirname(__file__))
+	except OSError:
+		pass
 	cfg = parse_prefs()
 	dir_setup('moov-dl_tmp')
 	auth()
