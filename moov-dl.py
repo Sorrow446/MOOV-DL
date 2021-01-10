@@ -238,11 +238,11 @@ def main(alb_id, url):
 				os.rename(pre_path, post_path)
 			except OSError:
 				err('Failed to rename track.')
-			try:
-				if cfg['lyrics']:
+			if cfg['lyrics']:
+				try:
 					write_lyrics(track['productId'], post_path)
-			except Exception:
-				err('Failed to write tags.')
+				except Exception:
+					err('Failed to write lyrics.')
 		except Exception:
 			err('Failed to rip track.')
 	if cov_path and not cfg['keep_cover']:
