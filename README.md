@@ -1,7 +1,7 @@
 # MOOV-DL
 Tool written in Python to download streamable tracks from [moov.hk](https://moov.hk/).   
-**People have been seen selling my tools. DO NOT buy them. My tools are free and always will be.**
-[Windows binaries](https://github.com/Sorrow446/MOOV-DL/releases)   
+**People have been seen selling my tools. DO NOT buy them. My tools are free and always will be.**   
+[Windows binaries](https://github.com/Sorrow446/MOOV-DL/releases)
 ![](https://orion.feralhosting.com/sorrow/share/moov-dl.png)
 
 ```
