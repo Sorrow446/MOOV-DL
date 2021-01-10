@@ -1,0 +1,11 @@
+{
+	"email": "",
+	"password": "",
+	"quality": 2,
+	"output_dir": "",
+	"template": "{track_padded}. {title}",
+	"comment": "",
+	"keep_cover": false,
+	"lyrics": false,
+	"meta_language": 1
+}
