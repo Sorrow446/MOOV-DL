@@ -41,14 +41,14 @@ optional arguments:
 ### Source
 1. Put FFmpeg binary in MOOV-DL's folder ([Windows](https://github.com/BtbN/FFmpeg-Builds/releases) | [Linux](https://johnvansickle.com/ffmpeg/)). It is needed for segment concatenation.
 2. Install requirements. `pip3 install -r requirements.txt`
-3. Fill in config.json (any specified CLI arguments will override these).
+3. Fill in `config.json` (any specified CLI arguments will override these).
 4. Call it with your args. `python/python3 moov-dl.py -u <album url>`
 
 ### Termux
 1. Unpack `MOOV-DL-main.zip`. This guide will be using the downloads folder.
 2. Install Python 3. `pkg install python`
 3. Install requirements. `pip3 install -r /storage/emulated/0/download/MOOV-DL-main/requirements.txt`
-4. Fill in config.json (any specified CLI arguments will override these). `/storage/emulated/0/download/MOOV-DL-main/config.json`
+4. Fill in `config.json` (any specified CLI arguments will override these). `/storage/emulated/0/download/MOOV-DL-main/config.json`
 5. Call it with your args. `python /storage/emulated/0/download/MOOV-DL-main/moov-dl.py -u <album url>`
 
 Downloaded albums will be written to `<script dir>\MOOV-DL downloads` unless you specify otherwise. CD'ing will be handled for you.      
