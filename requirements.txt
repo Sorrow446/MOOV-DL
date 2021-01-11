@@ -1,4 +1,4 @@
 tqdm
 mutagen
 requests
-pycryptodome
+pycryptodomex
