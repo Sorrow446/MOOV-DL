@@ -46,11 +46,12 @@ optional arguments:
 
 ### Termux
 1. Unpack `MOOV-DL-main.zip`. This guide will be using the downloads folder.
-2. Install Python 3. `pkg install python`
-3. CD into MOOV-DL's dir. `cd /storage/emulated/0/download/MOOV-DL-main/`
-4. Install requirements. `pip3 install -r requirements.txt`
-5. Fill in `config.json` (any specified CLI arguments will override these).
-6. Call it with your args. `python moov-dl.py -u <album url>`
+2. Put [FFmpeg binary](https://johnvansickle.com/ffmpeg/) in MOOV-DL's folder. It is needed for segment concatenation.
+3. Install Python 3. `pkg install python`
+4. CD into MOOV-DL's dir. `cd /storage/emulated/0/download/MOOV-DL-main/`
+5. Install requirements. `pip3 install -r requirements.txt`
+6. Fill in `config.json` (any specified CLI arguments will override these).
+7. Call it with your args. `python moov-dl.py -u <album url>`
 
 Downloaded albums will be written to `<script dir>\MOOV-DL downloads` unless you specify otherwise. CD'ing will be handled for you.      
 MOOV-DL will add itself as a device to your account upon logging in. It will appear as "Google+PIXEL+2XL". [Remove devices here](https://moov.hk/#/user/deviceMapping).
