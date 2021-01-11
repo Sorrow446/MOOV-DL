@@ -34,7 +34,7 @@ optional arguments:
 ```
 # Setup
 ### Binary
-1. Put FFmpeg binary in MOOV-DL's folder ([Windows](https://github.com/BtbN/FFmpeg-Builds/releases) | [Linux](https://johnvansickle.com/ffmpeg/)). It is needed for segment concatenation.
+1. Put [FFmpeg binary](https://github.com/BtbN/FFmpeg-Builds/releases) in MOOV-DL's folder. It is needed for segment concatenation.
 2. Fill in config.json (any specified CLI arguments will override these).
 3. Call it with your args via Command Prompt. `moov-dl_x86.exe -u <album url>`
 
