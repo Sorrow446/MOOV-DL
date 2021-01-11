@@ -51,7 +51,7 @@ optional arguments:
 4. Fill in config.json (any specified CLI arguments will override these). `/storage/emulated/0/download/MOOV-DL-main/config.json`
 5. Call it with your args. `python /storage/emulated/0/download/MOOV-DL-main/moov-dl.py -u <album url>`
 
-Downloaded albums will be stored at `<script dir>\MOOV-DL downloads` unless you specify otherwise. CD'ing will be handled for you.      
+Downloaded albums will be written to `<script dir>\MOOV-DL downloads` unless you specify otherwise. CD'ing will be handled for you.      
 MOOV-DL will add itself as a device to your account upon logging in. It will appear as "Google+PIXEL+2XL". [Remove devices here](https://moov.hk/#/user/deviceMapping).
 
 # Account Info
