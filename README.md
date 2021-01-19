@@ -54,9 +54,9 @@ optional arguments:
 8. Call it with your args. `python moov-dl.py -u <album url>`
 
 Downloaded albums will be written to `<script dir>\MOOV-DL downloads` unless you specify otherwise. CD'ing will be handled for you.      
-MOOV-DL will add itself as a device to your account upon logging in. It will appear as "Google+PIXEL+2XL". [Remove devices here](https://moov.hk/#/user/deviceMapping).
+MOOV-DL will add itself as a device to your account upon logging in. It will appear as "Google+PIXEL+2XL". [Remove devices here](http://www.dereferer.org/?https%3A%2F%2Fmoov%2Ehk%2F%23%2Fuser%2FdeviceMapping).
 
 # Account Info
 - Usable in any country. No VPN needed or any payment region restrictions.
 - 14-day free trials are being offered at the time of typing this.
-- [Subscription plans](https://moov.hk/reg/paynow.html?lang=en_us) (prices are in HKD). The easiest payment method is through the Android app via Google Pay.
+- [Subscription plans](http://www.dereferer.org/?https%3A%2F%2Fmoov%2Ehk%2Freg%2Fpaynow%2Ehtml%3Flang%3Den%5Fus) (prices are in HKD). The easiest payment method is through the Android app via Google Pay.
