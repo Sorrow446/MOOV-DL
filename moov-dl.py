@@ -112,12 +112,33 @@ def dir_setup(path):
 	if not os.path.isdir(path):
 		os.makedirs(path)
 
-def write_cov(cov_abs, url):
-	r = client.s.get(url)
-	r.raise_for_status()
-	with open(cov_abs, 'wb') as f:
-		f.write(r.content)	
-		
+def parse_meta(src, meta=None, num=None, total=None, url=None):
+	# Set tracktotal / num manually in case of disked albums.
+	if meta:
+		meta['artist'] = ", ".join(a.get('name') for a in src['artists'])
+		meta['title'] =  src.get('productTitle')
+		meta['track'] = num
+		meta['track_padded'] = str(num).zfill(2)
+	else:
+		comment = cfg['comment']
+		if not comment:
+			comment = url	
+		try:
+			year = src[cfg['meta_language']][2].split('-')[0]
+		except IndexError:
+			year = None
+		# Do alb title version.
+		meta={
+			'album': src[cfg['meta_language']][0],
+			'albumartist': ", ".join(a.get('name') for a in src['artists']),
+			'comment': comment,
+			'copyright': src.get('cnote'),
+			'label': src.get('albumLabel'),
+			'tracktotal': total,
+			'year': year
+		}
+	return meta
+
 def query_quals(qualities):
 	qualities = qualities.split(',')
 	if cfg['quality'] == "HR" and "HR" in qualities:
@@ -126,7 +147,13 @@ def query_quals(qualities):
 		print("Unavailable in \"HR\". \"LL\" will be used instead.")
 		return "LL"
 	raise Exception('Unavailable in FLAC.')
-	
+
+def write_cov(cov_abs, url):
+	r = client.s.get(url)
+	r.raise_for_status()
+	with open(cov_abs, 'wb') as f:
+		f.write(r.content)
+
 def decrypt(segment, content_key):
 	sec = "F4:8E:09:CE:54:F7SeCrEtKkK"
 	m = hashlib.md5()
@@ -140,10 +167,9 @@ def concat(paths, pre_path):
 	concat_path = os.path.join('moov-dl_tmp', 'concat.txt')
 	with open(concat_path, 'w') as f:
 		for path in paths:
-			f.write("file {}\n".format(path.replace('\\', '\\\\')))		
-	exe = "ffmpeg" if is_win else "./ffmpeg"
-	subprocess.run([exe, '-loglevel', 'fatal', '-f', 'concat', '-safe', '0', '-i', 
-											   concat_path, '-y', '-c', 'flac', pre_path])
+			f.write("file '{}'\n".format(path))
+	subprocess.run(['ffmpeg', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', 
+										   concat_path, '-y', '-c', 'flac', pre_path])
 
 # Clean up.
 def download(file_meta, meta, pre_path):
@@ -168,7 +194,7 @@ def download(file_meta, meta, pre_path):
 					time.sleep(1)
 					continue
 				break
-			path = os.path.join('moov-dl_tmp', str(num)) + ".flac"
+			path = os.path.join(cwd, 'moov-dl_tmp', str(num)) + ".flac"
 			with open(path, 'wb') as f:
 				f.write(decrypt(r.content, file_meta['contentKey']))
 				bar.update(1)
@@ -201,7 +227,7 @@ def write_lyrics(tra_id, post_path):
 		f.write(lyrics['lyric'])
 	print("Wrote lyrics.")
 
-def cleanup():
+def clean_up():
 	for fname in os.listdir('moov-dl_tmp'):
 		os.remove(os.path.join('moov-dl_tmp', fname))
 
@@ -249,33 +275,6 @@ def main(alb_id, url):
 		if os.path.isfile(cov_path):
 			os.remove(cov_path)
 
-def parse_meta(src, meta=None, num=None, total=None, url=None):
-	# Set tracktotal / num manually in case of disked albums.
-	if meta:
-		meta['artist'] = ", ".join(a.get('name') for a in src['artists'])
-		meta['title'] =  src.get('productTitle')
-		meta['track'] = num
-		meta['track_padded'] = str(num).zfill(2)
-	else:
-		comment = cfg['comment']
-		if not comment:
-			comment = url	
-		try:
-			year = src[cfg['meta_language']][2].split('-')[0]
-		except IndexError:
-			year = None
-		# Do alb title version.
-		meta={
-			'album': src[cfg['meta_language']][0],
-			'albumartist': ", ".join(a.get('name') for a in src['artists']),
-			'comment': comment,
-			'copyright': src.get('cnote'),
-			'label': src.get('albumLabel'),
-			'tracktotal': total,
-			'year': year
-		}
-	return meta
-
 if __name__ == '__main__':
 	print("""
  _____ _____ _____ _____     ____  __    
@@ -292,6 +291,7 @@ if __name__ == '__main__':
 			os.chdir(os.path.dirname(__file__))
 	except OSError:
 		pass
+	cwd = os.getcwd()
 	cfg = parse_prefs()
 	dir_setup('moov-dl_tmp')
 	auth()
@@ -310,4 +310,4 @@ if __name__ == '__main__':
 		except Exception:
 			err('Failed to rip album.')
 		finally:
-			cleanup()
+			clean_up()
