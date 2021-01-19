@@ -34,12 +34,12 @@ optional arguments:
 ```
 # Setup
 ### Binary
-1. Put [FFmpeg binary](https://github.com/BtbN/FFmpeg-Builds/releases) in MOOV-DL's folder. It is needed for segment concatenation.
+1. Put [FFmpeg binary](https://github.com/BtbN/FFmpeg-Builds/releases) in MOOV-DL's folder.
 2. Fill in `config.json` (any specified CLI arguments will override these).
 3. Call it with your args via Command Prompt. `moov-dl_x64.exe -u <album url>`
 
 ### Source
-1. Put FFmpeg binary in MOOV-DL's folder ([Windows](https://github.com/BtbN/FFmpeg-Builds/releases) | [Linux](https://johnvansickle.com/ffmpeg/)). It is needed for segment concatenation.
+1. Win: Put [FFmpeg binary](https://github.com/BtbN/FFmpeg-Builds/releases) in MOOV-DL's folder / Lin: Install FFmpeg. `sudo apt install ffmpeg`.
 2. Install requirements. `pip3 install -r requirements.txt`
 3. Fill in `config.json` (any specified CLI arguments will override these).
 4. Call it with your args. `python/python3 moov-dl.py -u <album url>`
@@ -47,9 +47,8 @@ optional arguments:
 ### Termux
 1. Unpack `MOOV-DL-main.zip`. This guide will be using the downloads folder.
 2. Install Python 3. `pkg install python`
+3. Install FFmpeg. `pkg install ffmpeg`
 3. CD into MOOV-DL's dir. `cd /storage/emulated/0/download/MOOV-DL-main/`
-4. Put [FFmpeg binary](https://johnvansickle.com/ffmpeg/) in MOOV-DL's directory. It is needed for segment concatenation.
-5. Add execution permissions for FFmpeg. `chmod +x ffmpeg`
 6. Install requirements. `pip3 install -r requirements.txt`
 7. Fill in `config.json` (any specified CLI arguments will override these).
 8. Call it with your args. `python moov-dl.py -u <album url>`
