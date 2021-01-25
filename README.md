@@ -34,7 +34,7 @@ optional arguments:
 ```
 # Setup
 ### Binary
-1. Put [FFmpeg binary](https://github.com/BtbN/FFmpeg-Builds/releases) in MOOV-DL's folder.
+1. Put [FFmpeg binary (win64, gpl)](https://github.com/BtbN/FFmpeg-Builds/releases) in MOOV-DL's folder.
 2. Fill in `config.json` (any specified CLI arguments will override these).
 3. Call it with your args via Command Prompt. `moov-dl_x64.exe -u <album url>`
 
