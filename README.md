@@ -36,12 +36,12 @@ optional arguments:
 ### Binary
 1. Put [FFmpeg binary (win64, gpl)](https://github.com/BtbN/FFmpeg-Builds/releases) in MOOV-DL's folder.
 2. Fill in `config.json` (any specified CLI arguments will override these).
-3. Call it with your args via Command Prompt. `moov-dl_x64.exe -u <album url>`
+3. Call it with your args via Command Prompt. `moov-dl_x86.exe -u <album url>`
 
 ### Source
 1. Win: Put [FFmpeg binary (win64, gpl)](https://github.com/BtbN/FFmpeg-Builds/releases) in MOOV-DL's folder / Lin: Install FFmpeg. `sudo apt install ffmpeg`.
 2. Install requirements. `pip3 install -r requirements.txt`
-3. Fill in `config.json` (any specified CLI arguments will override these).
+3. Fill in `config.json` (any of the same specified CLI arguments will override these).
 4. Call it with your args. `python/python3 moov-dl.py -u <album url>`
 
 ### Termux
@@ -51,7 +51,7 @@ optional arguments:
 3. CD into MOOV-DL's dir. `cd /storage/emulated/0/download/MOOV-DL-main/`
 6. Install requirements. `pip3 install -r requirements.txt`
 7. Fill in `config.json` (any specified CLI arguments will override these).
-8. Call it with your args. `python moov-dl.py -u <album url>`
+8. Call it with your args. `python/python3 moov-dl.py -u <album url>`
 
 Downloaded albums will be written to `<script dir>\MOOV-DL downloads` unless you specify otherwise. CD'ing will be handled for you.      
 MOOV-DL will add itself as a device to your account upon logging in. It will appear as "Google+PIXEL+2XL". [Remove devices here](http://www.dereferer.org/?https%3A%2F%2Fmoov%2Ehk%2F%23%2Fuser%2FdeviceMapping).
